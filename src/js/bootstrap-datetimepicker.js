@@ -33,28 +33,10 @@
 /*global require:false */
 /*global jQuery:false */
 /*global moment:false */
-(function (factory) {
+module.exports = function ($) {
     'use strict';
-    if (typeof define === 'function' && define.amd) {
-        // AMD is used - Register as an anonymous module.
-        define(['jquery', 'moment'], factory);
-    } else if (typeof exports === 'object') {
-        factory(require('jquery'), require('moment'));
-    } else {
-        // Neither AMD nor CommonJS used. Use global variables.
-        if (typeof jQuery === 'undefined') {
-            throw 'bootstrap-datetimepicker requires jQuery to be loaded first';
-        }
-        if (typeof moment === 'undefined') {
-            throw 'bootstrap-datetimepicker requires Moment.js to be loaded first';
-        }
-        factory(jQuery, moment);
-    }
-}(function ($, moment) {
-    'use strict';
-    if (!moment) {
-        throw new Error('bootstrap-datetimepicker requires Moment.js to be loaded first');
-    }
+
+    var moment = require('moment');
 
     var dateTimePicker = function (element, options) {
         var picker = {},
@@ -2549,4 +2531,4 @@
         enabledHours: false,
         viewDate: false
     };
-}));
+};
